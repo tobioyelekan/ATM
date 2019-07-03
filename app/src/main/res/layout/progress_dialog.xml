@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.example.android.atm.ui.viewmodels.ProcessViewModel"/>
+    </data>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:padding="16dp"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/processing_withdraw_text"/>
+
+        <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:id="@+id/progress"
+                app:progress="@{viewModel.progress}"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:text="@string/cancel_processinh_withdrae"
+                style="@style/normalButton"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()->viewModel.dismissDialog()}"
+                android:layout_gravity="center"/>
+
+    </LinearLayout>
+</layout>
